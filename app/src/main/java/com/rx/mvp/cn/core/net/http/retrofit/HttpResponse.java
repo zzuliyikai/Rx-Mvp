@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName;
  *
  * @author ZhongDaFeng
  */
-public class HttpResponse {
+public class HttpResponse<T> {
 
     /**
      * 描述信息
@@ -29,7 +29,7 @@ public class HttpResponse {
      * 数据对象[成功返回对象,失败返回错误说明]
      */
     @SerializedName("result")
-    private JsonElement result;
+    private T result;
 
     /**
      * 是否成功(这里约定200)
@@ -62,11 +62,11 @@ public class HttpResponse {
         this.code = code;
     }
 
-    public JsonElement getResult() {
+    public T getResult() {
         return result;
     }
 
-    public void setResult(JsonElement result) {
+    public void setResult(T result) {
         this.result = result;
     }
 }

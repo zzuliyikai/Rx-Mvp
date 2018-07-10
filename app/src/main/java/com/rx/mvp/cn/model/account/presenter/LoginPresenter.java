@@ -1,8 +1,7 @@
 package com.rx.mvp.cn.model.account.presenter;
 
 import com.rx.mvp.cn.base.BasePresenter;
-import com.rx.mvp.cn.core.net.http.observer.HttpRxCallback;
-import com.rx.mvp.cn.model.account.activity.LoginActivity;
+import com.rx.mvp.cn.core.net.http.observer.HttpRxObserverCallback;
 import com.rx.mvp.cn.model.account.biz.UserBiz;
 import com.rx.mvp.cn.model.account.entity.UserBean;
 import com.rx.mvp.cn.model.other.presenter.PhoneAddressPresenter;
@@ -34,7 +33,7 @@ public class LoginPresenter extends BasePresenter<ILoginView, LifecycleProvider>
             getView().showLoading();
 
 
-        HttpRxCallback httpRxCallback = new HttpRxCallback(TAG + "login") {
+        HttpRxObserverCallback httpRxObserverCallback = new HttpRxObserverCallback(TAG + "login") {
             @Override
             public void onSuccess(Object... object) {
                 if (getView() != null) {
@@ -59,7 +58,7 @@ public class LoginPresenter extends BasePresenter<ILoginView, LifecycleProvider>
             }
         };
 
-        new UserBiz().login(userName, password, getActivity(), httpRxCallback);
+        new UserBiz().login(userName, password, getActivity(), httpRxObserverCallback);
 
         /**
          * ******此处代码为了测试取消请求,不是规范代码*****
@@ -67,8 +66,8 @@ public class LoginPresenter extends BasePresenter<ILoginView, LifecycleProvider>
         /*try {
             Thread.sleep(50);
             //取消请求
-            if (!httpRxCallback.isDisposed()) {
-                httpRxCallback.cancel();
+            if (!httpRxObserverCallback.isDisposed()) {
+                httpRxObserverCallback.cancel();
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

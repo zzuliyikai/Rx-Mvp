@@ -4,9 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.rx.mvp.cn.base.BaseBiz;
 import com.rx.mvp.cn.core.net.http.helper.ParseHelper;
-import com.rx.mvp.cn.core.net.http.observer.HttpRxCallback;
+import com.rx.mvp.cn.core.net.http.observer.HttpRxObserverCallback;
 import com.rx.mvp.cn.core.net.http.retrofit.HttpRequest;
-import com.rx.mvp.cn.model.account.entity.UserBean;
 import com.rx.mvp.cn.model.other.entity.AddressBean;
 import com.trello.rxlifecycle2.LifecycleProvider;
 
@@ -24,7 +23,7 @@ public class OtherBiz extends BaseBiz {
      */
     private final String API_PHONE_QUERY = "v1/mobile/address/query";
 
-    public void phoneQuery(String phone, LifecycleProvider lifecycle, HttpRxCallback callback) {
+    public void phoneQuery(String phone, LifecycleProvider lifecycle, HttpRxObserverCallback callback) {
         /**
          * 构建参数
          */

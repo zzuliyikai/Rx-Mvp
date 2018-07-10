@@ -1,7 +1,7 @@
 package com.rx.mvp.cn.core.net.http.retrofit;
 
 import com.rx.mvp.cn.core.net.http.api.Api;
-import com.rx.mvp.cn.core.net.http.observer.HttpRxCallback;
+import com.rx.mvp.cn.core.net.http.observer.HttpRxObserverCallback;
 import com.rx.mvp.cn.core.net.http.observer.HttpRxObservable;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.android.ActivityEvent;
@@ -40,7 +40,7 @@ public class HttpRequest {
      * @param prams    参数集合
      * @param callback 回调
      */
-    public void request(Method method, TreeMap<String, Object> prams, HttpRxCallback callback) {
+    public void request(Method method, TreeMap<String, Object> prams, HttpRxObserverCallback callback) {
 
         Observable<HttpResponse> apiObservable = handleRequest(method, prams);
 
@@ -58,7 +58,7 @@ public class HttpRequest {
      * @param prams     参数集合
      * @param callback  回调
      */
-    public void request(Method method, TreeMap<String, Object> prams, LifecycleProvider lifecycle, HttpRxCallback callback) {
+    public void request(Method method, TreeMap<String, Object> prams, LifecycleProvider lifecycle, HttpRxObserverCallback callback) {
         Observable<HttpResponse> apiObservable = handleRequest(method, prams);
 
         HttpRxObservable.getObservable(apiObservable, lifecycle, callback).subscribe(callback);
@@ -75,7 +75,7 @@ public class HttpRequest {
      * @param prams     参数集合
      * @param callback  回调
      */
-    public void request(Method method, TreeMap<String, Object> prams, LifecycleProvider<ActivityEvent> lifecycle, ActivityEvent event, HttpRxCallback callback) {
+    public void request(Method method, TreeMap<String, Object> prams, LifecycleProvider<ActivityEvent> lifecycle, ActivityEvent event, HttpRxObserverCallback callback) {
         Observable<HttpResponse> apiObservable = handleRequest(method, prams);
 
         HttpRxObservable.getObservable(apiObservable, lifecycle, event, callback).subscribe(callback);
@@ -92,7 +92,7 @@ public class HttpRequest {
      * @param prams     参数集合
      * @param callback  回调
      */
-    public void request(Method method, TreeMap<String, Object> prams, LifecycleProvider<FragmentEvent> lifecycle, FragmentEvent event, HttpRxCallback callback) {
+    public void request(Method method, TreeMap<String, Object> prams, LifecycleProvider<FragmentEvent> lifecycle, FragmentEvent event, HttpRxObserverCallback callback) {
         Observable<HttpResponse> apiObservable = handleRequest(method, prams);
 
         HttpRxObservable.getObservable(apiObservable, lifecycle, event, callback).subscribe(callback);

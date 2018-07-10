@@ -28,16 +28,16 @@ import io.reactivex.disposables.Disposable;
  *
  * @author ZhongDaFeng
  */
-public abstract class HttpRxCallback<T> implements Observer<T>, HttpRequestListener {
+public abstract class HttpRxObserverCallback<T> implements Observer<T>, HttpRequestListener {
 
     private String mTag;//请求标识
     private ParseHelper parseHelper;//数据解析
 
-    public HttpRxCallback() {
+    public HttpRxObserverCallback() {
         this.mTag = String.valueOf(System.currentTimeMillis());
     }
 
-    public HttpRxCallback(String tag) {
+    public HttpRxObserverCallback(String tag) {
         this.mTag = tag;
     }
 

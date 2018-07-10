@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.rx.mvp.cn.base.BaseBiz;
 import com.rx.mvp.cn.core.net.http.helper.ParseHelper;
-import com.rx.mvp.cn.core.net.http.observer.HttpRxCallback;
+import com.rx.mvp.cn.core.net.http.observer.HttpRxObserverCallback;
 import com.rx.mvp.cn.core.net.http.retrofit.HttpRequest;
 import com.rx.mvp.cn.model.account.entity.UserBean;
 import com.trello.rxlifecycle2.LifecycleProvider;
@@ -31,7 +31,7 @@ public class UserBiz extends BaseBiz {
      * @param lifecycle
      * @param callback
      */
-    public void login(String userName, String password, LifecycleProvider lifecycle, HttpRxCallback callback) {
+    public void login(String userName, String password, LifecycleProvider lifecycle, HttpRxObserverCallback callback) {
         /**
          * 构建请求参数
          */

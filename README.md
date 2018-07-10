@@ -160,7 +160,7 @@
 	        if (getView() != null)
 	            getView().showLoading();
 	
-	        HttpRxCallback httpRxCallback = new HttpRxCallback(TAG + "login") {
+	        HttpRxCallback httpRxObserverCallback = new HttpRxCallback(TAG + "login") {
 	            @Override
 	            public void onSuccess(Object... object) {
 	                if (getView() != null) {
@@ -185,7 +185,7 @@
 	            }
 	        };
 	
-	        new UserBiz().login(userName, password, getActivity(), httpRxCallback);
+	        new UserBiz().login(userName, password, getActivity(), httpRxObserverCallback);
 	
 	        /**
 	         * ******此处代码为了测试取消请求,不是规范代码*****
@@ -193,8 +193,8 @@
 	        /*try {
 	            Thread.sleep(50);
 	            //取消请求
-	            if (!httpRxCallback.isDisposed()) {
-	                httpRxCallback.cancel();
+	            if (!httpRxObserverCallback.isDisposed()) {
+	                httpRxObserverCallback.cancel();
 	            }
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
@@ -205,7 +205,7 @@
 
 > 通常情况下使用 `LifecycleProvider` 自动管理生命周期就不需要手动取消请求
 > 
-> 如果在特殊场景需要开发者取消请求则使用 `httpRxCallback.cancel()`
+> 如果在特殊场景需要开发者取消请求则使用 `httpRxObserverCallback.cancel()`
 
      /**
      * 文档说明有限

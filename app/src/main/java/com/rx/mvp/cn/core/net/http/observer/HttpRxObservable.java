@@ -32,7 +32,7 @@ public class HttpRxObservable {
      *
      * @author ZhongDaFeng
      */
-    public static Observable getObservable(Observable<HttpResponse> apiObservable, final HttpRxCallback callback) {
+    public static Observable getObservable(Observable<HttpResponse> apiObservable, final HttpRxObserverCallback callback) {
         // showLog(request);
         Observable observable = apiObservable
                 .map(new ServerResultFunction())
@@ -60,7 +60,7 @@ public class HttpRxObservable {
      *
      * @author ZhongDaFeng
      */
-    public static Observable getObservable(Observable<HttpResponse> apiObservable, LifecycleProvider lifecycle, final HttpRxCallback callback) {
+    public static Observable getObservable(Observable<HttpResponse> apiObservable, LifecycleProvider lifecycle, final HttpRxObserverCallback callback) {
         //showLog(request);
         Observable observable;
 
@@ -96,7 +96,7 @@ public class HttpRxObservable {
      *
      * @author ZhongDaFeng
      */
-    public static Observable getObservable(Observable<HttpResponse> apiObservable, LifecycleProvider<ActivityEvent> lifecycle, ActivityEvent event, final HttpRxCallback callback) {
+    public static Observable getObservable(Observable<HttpResponse> apiObservable, LifecycleProvider<ActivityEvent> lifecycle, ActivityEvent event, final HttpRxObserverCallback callback) {
         // showLog(request);
         Observable observable;
         if (lifecycle != null) {
@@ -131,7 +131,7 @@ public class HttpRxObservable {
      *
      * @author ZhongDaFeng
      */
-    public static Observable getObservable(Observable<HttpResponse> apiObservable, LifecycleProvider<FragmentEvent> lifecycle, FragmentEvent event, final HttpRxCallback callback) {
+    public static Observable getObservable(Observable<HttpResponse> apiObservable, LifecycleProvider<FragmentEvent> lifecycle, FragmentEvent event, final HttpRxObserverCallback callback) {
         //  showLog(request);
         Observable observable;
         if (lifecycle != null) {

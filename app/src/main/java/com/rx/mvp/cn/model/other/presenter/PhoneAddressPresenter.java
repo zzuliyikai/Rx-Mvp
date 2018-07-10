@@ -1,8 +1,7 @@
 package com.rx.mvp.cn.model.other.presenter;
 
 import com.rx.mvp.cn.base.BasePresenter;
-import com.rx.mvp.cn.core.net.http.observer.HttpRxCallback;
-import com.rx.mvp.cn.model.other.activity.PhoneAddressActivity;
+import com.rx.mvp.cn.core.net.http.observer.HttpRxObserverCallback;
 import com.rx.mvp.cn.model.other.biz.OtherBiz;
 import com.rx.mvp.cn.model.other.entity.AddressBean;
 import com.rx.mvp.cn.model.other.iface.IPhoneAddressView;
@@ -35,7 +34,7 @@ public class PhoneAddressPresenter extends BasePresenter<IPhoneAddressView, Life
             getView().showLoading();
 
         //请求
-        new OtherBiz().phoneQuery(phone, getActivity(), new HttpRxCallback() {
+        new OtherBiz().phoneQuery(phone, getActivity(), new HttpRxObserverCallback() {
             @Override
             public void onSuccess(Object... object) {
                 if (getView() != null) {

@@ -46,7 +46,7 @@ public class RxActionManagerImpl implements RxActionManager<Object> {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.KITKAT)
+
     @Override
     public void cancel(Object tag) {
         if (mMaps.isEmpty()) {
